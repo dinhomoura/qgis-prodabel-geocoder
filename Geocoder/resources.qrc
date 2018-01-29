@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/plugins/Geocoder" >
+        <file>icon.png</file>
+		<file>metadata.txt</file>
+    </qresource>
+</RCC>
