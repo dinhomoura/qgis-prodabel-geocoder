@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'prodabel_geocoder_dialog_base.ui'
 #
-# Created: Fri Feb 02 00:54:03 2018
+# Created: Fri Feb 02 01:39:04 2018
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,9 +26,9 @@ except AttributeError:
 class Ui_GeocoderDialogBase(object):
     def setupUi(self, GeocoderDialogBase):
         GeocoderDialogBase.setObjectName(_fromUtf8("GeocoderDialogBase"))
-        GeocoderDialogBase.resize(400, 300)
+        GeocoderDialogBase.resize(380, 327)
         self.button_box = QtGui.QDialogButtonBox(GeocoderDialogBase)
-        self.button_box.setGeometry(QtCore.QRect(30, 240, 341, 32))
+        self.button_box.setGeometry(QtCore.QRect(-70, 140, 341, 32))
         self.button_box.setOrientation(QtCore.Qt.Horizontal)
         self.button_box.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.button_box.setObjectName(_fromUtf8("button_box"))
@@ -47,6 +47,9 @@ class Ui_GeocoderDialogBase(object):
         self.label_3 = QtGui.QLabel(GeocoderDialogBase)
         self.label_3.setGeometry(QtCore.QRect(50, 100, 16, 16))
         self.label_3.setObjectName(_fromUtf8("label_3"))
+        self.textBrowser = QtGui.QTextBrowser(GeocoderDialogBase)
+        self.textBrowser.setGeometry(QtCore.QRect(70, 190, 241, 101))
+        self.textBrowser.setObjectName(_fromUtf8("textBrowser"))
 
         self.retranslateUi(GeocoderDialogBase)
         QtCore.QObject.connect(self.button_box, QtCore.SIGNAL(_fromUtf8("accepted()")), GeocoderDialogBase.accept)

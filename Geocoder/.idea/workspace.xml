@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ecac828b-13d5-4288-bf0b-82b321dfd77b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/ws_geocoder.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/prodabel_geocoder_dialog_base.py" afterPath="$PROJECT_DIR$/prodabel_geocoder_dialog_base.py" />
       <change beforePath="$PROJECT_DIR$/prodabel_geocoder_dialog_base.ui" afterPath="$PROJECT_DIR$/prodabel_geocoder_dialog_base.ui" />
@@ -31,7 +30,7 @@
       <file leaf-file-name="prodabel_geocoder_dialog_base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prodabel_geocoder_dialog_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="-244">
               <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
@@ -244,7 +243,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -539,7 +537,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/prodabel_geocoder_dialog_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="-244">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
