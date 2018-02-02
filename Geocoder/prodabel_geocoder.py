@@ -22,6 +22,9 @@
 """
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from PyQt4.QtGui import QAction, QIcon
+from ws_geocoder import Geocoder
+
+
 # Initialize Qt resources from file resources.py
 import resources
 # Import the code for the dialog
@@ -190,4 +193,9 @@ class Geocoder:
         if result:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
-            pass
+            geo = Geocoder()
+            js = geo.pesqcepnum(self.dlg.lineEditCEP, self.dlg.lineEditNumero)
+
+            ender = js['endereco']
+
+            self.dlg.textBrowser.setText(json.dumps(ender['nomelogradouro'], indent=2, ensure_ascii=False))
