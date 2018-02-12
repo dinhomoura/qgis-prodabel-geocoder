@@ -2,7 +2,7 @@ import json
 import urllib.request
 
 
-class Geocoder:
+class WsGeocoder:
     """Classe para consulta aos web service ddo geocoder.pbh"""
     def __init__(self):
         self.addressUrl = 'http://geocoder.pbh.gov.br/geocoder/v1/address?'
@@ -14,7 +14,7 @@ class Geocoder:
         self.pBairro = 'bairro'
         self.pCep = 'cep'
 
-    def getresponse(url):
+    def getresponse(self, url):
         data = urllib.request.urlopen(url).read().decode()
 
         try:
@@ -24,23 +24,23 @@ class Geocoder:
 
         return js
 
-    def addparamurl(url, paramName, paramValue):
+    def addparamurl(self, url, paramName, paramValue):
         return url+'&'+paramName+'='+paramValue
 
     def pesqlograd(self, nomeLogradouro):
-        url = Geocoder.addparamurl(self.addressUrl,self.pLogradouro,nomeLogradouro)
-        return Geocoder.getresponse(url)
+        url = WsGeocoder.addparamurl(self.addressUrl,self.pLogradouro,nomeLogradouro)
+        return WsGeocoder.getresponse(url)
 
     def pesqcep(self, cep):
-        url = Geocoder.addparamurl(self.addressUrl, self.pCep, cep)
-        return Geocoder.getresponse(url)
+        url = WsGeocoder.addparamurl(self.addressUrl, self.pCep, cep)
+        return WsGeocoder.getresponse(url)
 
     def pesqlogradnum(self, nomeLogradouro, numero):
-        url = Geocoder.addparamurl(self.addressUrl, self.pLogradouro, nomeLogradouro)
-        url = Geocoder.addparamurl(url, self.pNumero, numero)
-        return Geocoder.getresponse(url)
+        url = WsGeocoder.addparamurl(self.addressUrl, self.pLogradouro, nomeLogradouro)
+        url = WsGeocoder.addparamurl(url, self.pNumero, numero)
+        return WsGeocoder.getresponse(url)
 
     def pesqcepnum(self, cep,numero):
-        url = Geocoder.addparamurl(self.addressUrl, self.pCep, cep)
-        url = Geocoder.addparamurl(url, self.pNumero ,numero)
-        return Geocoder.getresponse(url)
+        url = WsGeocoder.addparamurl(self, self.addressUrl, self.pCep, cep)
+        url = WsGeocoder.addparamurl(self, url, self.pNumero ,numero)
+        return WsGeocoder.getresponse(self, url)
