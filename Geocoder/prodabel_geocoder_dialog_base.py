@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'prodabel_geocoder_dialog_base.ui'
 #
-# Created: Fri Feb 02 01:39:04 2018
+# Created: Mon Feb 12 23:40:21 2018
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,20 +26,24 @@ except AttributeError:
 class Ui_GeocoderDialogBase(object):
     def setupUi(self, GeocoderDialogBase):
         GeocoderDialogBase.setObjectName(_fromUtf8("GeocoderDialogBase"))
-        GeocoderDialogBase.resize(380, 327)
+        GeocoderDialogBase.resize(380, 351)
         self.button_box = QtGui.QDialogButtonBox(GeocoderDialogBase)
-        self.button_box.setGeometry(QtCore.QRect(-70, 140, 341, 32))
+        self.button_box.setGeometry(QtCore.QRect(20, 310, 341, 32))
         self.button_box.setOrientation(QtCore.Qt.Horizontal)
         self.button_box.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.button_box.setObjectName(_fromUtf8("button_box"))
         self.label = QtGui.QLabel(GeocoderDialogBase)
-        self.label.setGeometry(QtCore.QRect(80, 20, 251, 16))
+        self.label.setGeometry(QtCore.QRect(30, 20, 321, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label.setFont(font)
         self.label.setObjectName(_fromUtf8("label"))
         self.lineEditCep = QtGui.QLineEdit(GeocoderDialogBase)
         self.lineEditCep.setGeometry(QtCore.QRect(70, 70, 113, 20))
         self.lineEditCep.setObjectName(_fromUtf8("lineEditCep"))
         self.lineEditNumero = QtGui.QLineEdit(GeocoderDialogBase)
         self.lineEditNumero.setGeometry(QtCore.QRect(70, 100, 113, 20))
+        self.lineEditNumero.setText(_fromUtf8(""))
         self.lineEditNumero.setObjectName(_fromUtf8("lineEditNumero"))
         self.label_2 = QtGui.QLabel(GeocoderDialogBase)
         self.label_2.setGeometry(QtCore.QRect(50, 70, 21, 16))
@@ -50,6 +54,12 @@ class Ui_GeocoderDialogBase(object):
         self.textBrowser = QtGui.QTextBrowser(GeocoderDialogBase)
         self.textBrowser.setGeometry(QtCore.QRect(70, 190, 241, 101))
         self.textBrowser.setObjectName(_fromUtf8("textBrowser"))
+        self.pesquisarButton = QtGui.QPushButton(GeocoderDialogBase)
+        self.pesquisarButton.setGeometry(QtCore.QRect(150, 140, 75, 23))
+        self.pesquisarButton.setObjectName(_fromUtf8("pesquisarButton"))
+        self.label_4 = QtGui.QLabel(GeocoderDialogBase)
+        self.label_4.setGeometry(QtCore.QRect(70, 170, 51, 16))
+        self.label_4.setObjectName(_fromUtf8("label_4"))
 
         self.retranslateUi(GeocoderDialogBase)
         QtCore.QObject.connect(self.button_box, QtCore.SIGNAL(_fromUtf8("accepted()")), GeocoderDialogBase.accept)
@@ -61,4 +71,6 @@ class Ui_GeocoderDialogBase(object):
         self.label.setText(_translate("GeocoderDialogBase", "Consulta ao serviço web geocoder.pbh.gov.br", None))
         self.label_2.setText(_translate("GeocoderDialogBase", "CEP", None))
         self.label_3.setText(_translate("GeocoderDialogBase", "Nº", None))
+        self.pesquisarButton.setText(_translate("GeocoderDialogBase", "Pesquisar", None))
+        self.label_4.setText(_translate("GeocoderDialogBase", "Resultado", None))
 

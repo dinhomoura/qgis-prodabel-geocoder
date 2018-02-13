@@ -23,13 +23,33 @@
 
 import os
 
-from PyQt4 import QtGui, uic
+from PyQt4 import QtGui, QtCore
+from prodabel_geocoder_dialog_base import Ui_GeocoderDialogBase
 
+from ws_geocoder import WsGeocoder
+import json
+
+"""
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'prodabel_geocoder_dialog_base.ui'))
+"""
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 
-class GeocoderDialog(QtGui.QDialog, FORM_CLASS):
+class GeocoderDialog(QtGui.QDialog, Ui_GeocoderDialogBase):
     def __init__(self, parent=None):
         """Constructor."""
         super(GeocoderDialog, self).__init__(parent)
@@ -39,3 +59,12 @@ class GeocoderDialog(QtGui.QDialog, FORM_CLASS):
         # http://qt-project.org/doc/qt-4.8/designer-using-a-ui-file.html
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
+        QtCore.QObject.connect(self.pesquisarButton, QtCore.SIGNAL(_fromUtf8("clicked()")),
+                               self.updateTextBrowser)
+
+    def updateTextBrowser(self):
+        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        geo = WsGeocoder()
+        js = geo.pesqcepnum(self.lineEditCep.text(), self.lineEditNumero.text())
+        self.textBrowser.setText(json.dumps(js['endereco'], indent=2, ensure_ascii=False))
+        QtGui.QApplication.restoreOverrideCursor()

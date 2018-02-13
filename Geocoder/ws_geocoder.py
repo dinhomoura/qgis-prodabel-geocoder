@@ -1,6 +1,5 @@
 import json
-import urllib.request
-
+import urllib
 
 class WsGeocoder:
     """Classe para consulta aos web service ddo geocoder.pbh"""

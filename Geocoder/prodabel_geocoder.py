@@ -22,8 +22,6 @@
 """
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from PyQt4.QtGui import QAction, QIcon
-from ws_geocoder import WsGeocoder
-import json
 
 # Initialize Qt resources from file resources.py
 import resources
@@ -187,15 +185,12 @@ class Geocoder:
         """Run method that performs all the real work"""
         # show the dialog
         self.dlg.show()
+
         # Run the dialog event loop
         result = self.dlg.exec_()
+
         # See if OK was pressed
         if result:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
-            geo = WsGeocoder()
-            js = geo.pesqcepnum(self.dlg.lineEditCep.text(), self.dlg.lineEditNumero.text())
-
-            ender = js['endereco']
-
-            self.dlg.textBrowser.setText(json.dumps(ender['nomelogradouro'], indent=2, ensure_ascii=False))
+            pass
