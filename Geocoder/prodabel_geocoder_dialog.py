@@ -60,11 +60,22 @@ class GeocoderDialog(QtGui.QDialog, Ui_GeocoderDialogBase):
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
         QtCore.QObject.connect(self.pesquisarButton, QtCore.SIGNAL(_fromUtf8("clicked()")),
-                               self.updateTextBrowser)
+                               self.updateTextBrowserResultado)
 
-    def updateTextBrowser(self):
+    def updateTextBrowserResultado(self):
         QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         geo = WsGeocoder()
         js = geo.pesqcepnum(self.lineEditCep.text(), self.lineEditNumero.text())
-        self.textBrowser.setText(json.dumps(js['endereco'], indent=2, ensure_ascii=False))
+        self.textBrowserResultado.setText(json.dumps(js['endereco'], indent=2, ensure_ascii=False))
         QtGui.QApplication.restoreOverrideCursor()
+
+    def loadComboBoxTipoConsulta(self):
+        self.comboBoxTipoConsulta.clear()
+        self.comboBoxTipoConsulta.insertItem(0, '')
+        self.comboBoxTipoConsulta.insertItem(1, 'Logradouro')
+        self.comboBoxTipoConsulta.insertItem(2, _fromUtf8("Logradouro e Número"))
+        self.comboBoxTipoConsulta.insertItem(3, _fromUtf8('Logradouro, Número e Bairro'))
+        self.comboBoxTipoConsulta.insertItem(4, 'CEP')
+        self.comboBoxTipoConsulta.insertItem(5, _fromUtf8('CEP e Número'))
+        self.comboBoxTipoConsulta.insertItem(6, 'Bairro')
+        self.comboBoxTipoConsulta.insertItem(7, 'id_endereco_pbh')

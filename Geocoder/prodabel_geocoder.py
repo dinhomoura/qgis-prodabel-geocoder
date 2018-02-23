@@ -184,6 +184,7 @@ class Geocoder:
     def run(self):
         """Run method that performs all the real work"""
         # show the dialog
+        self.dlg.loadComboBoxTipoConsulta()
         self.dlg.show()
 
         # Run the dialog event loop
