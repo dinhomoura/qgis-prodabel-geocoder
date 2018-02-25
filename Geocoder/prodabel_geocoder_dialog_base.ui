@@ -51,6 +51,9 @@
    </property>
   </widget>
   <widget class="QTextBrowser" name="textBrowserResultado">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -261,6 +264,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="inputMask">
+     <string extracomment="Ex: Afonso Pena"/>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEditCep">
     <property name="enabled">
@@ -273,6 +279,9 @@
       <width>211</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="inputMask">
+     <string extracomment="Ex: 30130908"/>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditNumero">
@@ -329,6 +338,9 @@
    </property>
   </widget>
   <widget class="QPushButton" name="mostrarNoMapaButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -386,6 +398,22 @@
     <hint type="destinationlabel">
      <x>20</x>
      <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEditBairro</sender>
+   <signal>cursorPositionChanged(int,int)</signal>
+   <receiver>GeocoderDialogBase</receiver>
+   <slot>exec()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>189</x>
+     <y>288</y>
     </hint>
    </hints>
   </connection>

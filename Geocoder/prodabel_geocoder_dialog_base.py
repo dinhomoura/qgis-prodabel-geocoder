@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'prodabel_geocoder_dialog_base.ui'
 #
-# Created: Fri Feb 23 01:21:40 2018
+# Created: Fri Feb 23 16:15:01 2018
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -40,6 +40,7 @@ class Ui_GeocoderDialogBase(object):
         self.labelTitle.setAlignment(QtCore.Qt.AlignCenter)
         self.labelTitle.setObjectName(_fromUtf8("labelTitle"))
         self.textBrowserResultado = QtGui.QTextBrowser(GeocoderDialogBase)
+        self.textBrowserResultado.setEnabled(False)
         self.textBrowserResultado.setGeometry(QtCore.QRect(10, 370, 361, 101))
         self.textBrowserResultado.setObjectName(_fromUtf8("textBrowserResultado"))
         self.pesquisarButton = QtGui.QPushButton(GeocoderDialogBase)
@@ -120,6 +121,7 @@ class Ui_GeocoderDialogBase(object):
         self.line_3.setFrameShadow(QtGui.QFrame.Sunken)
         self.line_3.setObjectName(_fromUtf8("line_3"))
         self.mostrarNoMapaButton = QtGui.QPushButton(GeocoderDialogBase)
+        self.mostrarNoMapaButton.setEnabled(False)
         self.mostrarNoMapaButton.setGeometry(QtCore.QRect(140, 490, 101, 23))
         self.mostrarNoMapaButton.setObjectName(_fromUtf8("mostrarNoMapaButton"))
         self.line_4 = QtGui.QFrame(GeocoderDialogBase)

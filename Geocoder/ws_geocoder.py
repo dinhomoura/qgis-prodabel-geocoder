@@ -27,19 +27,21 @@ class WsGeocoder:
         return url+'&'+paramName+'='+paramValue
 
     def pesqlograd(self, nomeLogradouro):
-        url = WsGeocoder.addparamurl(self.addressUrl,self.pLogradouro,nomeLogradouro)
-        return WsGeocoder.getresponse(url)
+        url = WsGeocoder.addparamurl(self, self.addressUrl,self.pLogradouro,nomeLogradouro)
+        url = WsGeocoder.addparamurl(self, url, self.pClassificacao,"completo")
+        return WsGeocoder.getresponse(self, url)
 
     def pesqcep(self, cep):
-        url = WsGeocoder.addparamurl(self.addressUrl, self.pCep, cep)
-        return WsGeocoder.getresponse(url)
+        url = WsGeocoder.addparamurl(self, self.addressUrl, self.pCep, cep)
+        return WsGeocoder.getresponse(self, url)
 
     def pesqlogradnum(self, nomeLogradouro, numero):
-        url = WsGeocoder.addparamurl(self.addressUrl, self.pLogradouro, nomeLogradouro)
-        url = WsGeocoder.addparamurl(url, self.pNumero, numero)
-        return WsGeocoder.getresponse(url)
+        url = WsGeocoder.addparamurl(self, self.addressUrl, self.pLogradouro, nomeLogradouro)
+        url = WsGeocoder.addparamurl(self, url, self.pClassificacao, "completo")
+        url = WsGeocoder.addparamurl(self, url, self.pNumero, numero)
+        return WsGeocoder.getresponse(self, url)
 
-    def pesqcepnum(self, cep,numero):
+    def pesqcepnum(self, cep, numero):
         url = WsGeocoder.addparamurl(self, self.addressUrl, self.pCep, cep)
-        url = WsGeocoder.addparamurl(self, url, self.pNumero ,numero)
+        url = WsGeocoder.addparamurl(self, url, self.pNumero, numero)
         return WsGeocoder.getresponse(self, url)
