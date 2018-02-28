@@ -24,7 +24,12 @@ class WsGeocoder:
         return js
 
     def addparamurl(self, url, paramName, paramValue):
-        return url+'&'+paramName+'='+paramValue
+        f = {paramName:paramValue}
+        return url+'&'+urllib.urlencode(f)
+    def pesqLogradUrl(self, nomeLogradouro):
+        url = WsGeocoder.addparamurl(self, self.addressUrl, self.pLogradouro, nomeLogradouro)
+        url = WsGeocoder.addparamurl(self, url, self.pClassificacao, "completo")
+        return url
 
     def pesqlograd(self, nomeLogradouro):
         url = WsGeocoder.addparamurl(self, self.addressUrl,self.pLogradouro,nomeLogradouro)
