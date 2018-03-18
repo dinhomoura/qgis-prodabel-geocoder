@@ -122,7 +122,8 @@ class Ui_GeocoderDialogBase(object):
         self.line_3.setObjectName(_fromUtf8("line_3"))
         self.mostrarNoMapaButton = QtGui.QPushButton(GeocoderDialogBase)
         self.mostrarNoMapaButton.setEnabled(False)
-        self.mostrarNoMapaButton.setGeometry(QtCore.QRect(140, 490, 101, 23))
+        self.mostrarNoMapaButton.setGeometr
+        y(QtCore.QRect(140, 490, 101, 23))
         self.mostrarNoMapaButton.setObjectName(_fromUtf8("mostrarNoMapaButton"))
         self.line_4 = QtGui.QFrame(GeocoderDialogBase)
         self.line_4.setGeometry(QtCore.QRect(10, 520, 361, 16))

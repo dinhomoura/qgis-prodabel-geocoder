@@ -26,6 +26,7 @@ import os
 """
 
 from PyQt4 import QtGui, QtCore
+from qgis.core import QgsProject, QgsLayerTreeGroup, QgsVectorLayer
 from prodabel_geocoder_dialog_base import Ui_GeocoderDialogBase
 
 from ws_geocoder import WsGeocoder
@@ -75,6 +76,10 @@ class GeocoderDialog(QtGui.QDialog, Ui_GeocoderDialogBase):
                                self.statusPesquisarButton)
         QtCore.QObject.connect(self.lineEditIdEnderecoPbh,  QtCore.SIGNAL(_fromUtf8("cursorPositionChanged(int,int)")),
                                self.statusPesquisarButton)
+        QtCore.QObject.connect(self.mostrarNoMapaButton, QtCore.SIGNAL(_fromUtf8("clicked()")),
+                               self.addFeatureToWorkspace)
+        self.grupo = QgsLayerTreeGroup()
+        self.layer = QgsVectorLayer()
 
     def updateTextBrowserResultado(self):
         QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
@@ -111,6 +116,7 @@ class GeocoderDialog(QtGui.QDialog, Ui_GeocoderDialogBase):
 
             self.textBrowserResultado.setText(json.dumps(js, indent=2, ensure_ascii=False))
             self.textBrowserResultado.setDisabled(False)
+            self.mostrarNoMapaButton.setDisabled(False)
             QtGui.QApplication.restoreOverrideCursor()
 
         except:
@@ -262,3 +268,36 @@ class GeocoderDialog(QtGui.QDialog, Ui_GeocoderDialogBase):
         self.lineEditIdEnderecoPbh.setText(None)
         self.lineEditBairro.setText(None)
         self.textBrowserResultado.setText(None)
+
+    def addFeatureToWorkspace(self):
+        # verificar grupo de layers
+        root = QgsProject.instance().layerTreeRoot()
+        criaGrupo = True
+        criaLayer = True
+
+        for child in root.children():
+            if isinstance(child, QgsLayerTreeGroup):
+                if child.name() == "Prodabel_Geocoder":
+                    criaGrupo = False
+                    self.grupo = child
+
+                    for subChild in child.children():
+                        if isinstance(child, QgsVectorLayer):
+                            if child.name() == "enderecos_pesquisados":
+                                criaLayer = False
+                                self.layer = child
+
+        if criaGrupo:
+            self.grupo = root.addGroup('Prodabel_Geocoder')
+            if criaLayer:
+                self.layer = QgsVectorLayer("Point", "enderecos_pesquisados", "memory")
+                self.grupo.addLayer(self.layer)
+
+
+
+
+
+
+
+
+
